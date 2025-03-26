@@ -32,7 +32,7 @@ with gr.Blocks(title="Safety Helmet Detection System") as app:
             with gr.Row():
                 with gr.Column():
                     image_input = gr.Image(type="numpy", label="Input Image")
-                    image_button = gr.Button("Detect Hard Hats")
+                    image_button = gr.Button("Detect Safety Helmets")
                 with gr.Column():
                     image_output = gr.Image(type="numpy", label="Detection Results")
             
@@ -58,7 +58,7 @@ with gr.Blocks(title="Safety Helmet Detection System") as app:
     
     gr.Markdown("## About")
     gr.Markdown("""
-    This application uses YOLOv11 to detect people and determine if they are wearing safety helmet.
+    This application uses YOLOv11 to detect people and determine if they are wearing safety helmets or hard hats.
     - Yellow boxes: Person with helmet
     """)
 

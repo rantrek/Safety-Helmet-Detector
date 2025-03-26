@@ -10,11 +10,11 @@ class HelmetDetector:
         #Load the pretrained YOLO model
         if model_path and os.path.exists(model_path):
             self.model = YOLO(model_path)
-            #print('Model not detected')
+            
             
         else:
             
-            self.model = torch.hub.load("ultralytics/yolov5", "yolov5n")
+            self.model = YOLO('yolov11n')
         
         
         #Class names for hard hat detection (update these based on your specific model)
