@@ -59,9 +59,8 @@ with gr.Blocks(title="Safety Helmet Detection System") as app:
     gr.Markdown("## About")
     gr.Markdown("""
     This application uses YOLOv11 to detect people and determine if they are wearing safety helmets or hard hats.
-    - Yellow boxes: Person with helmet
     """)
 
 if __name__ == "__main__":
     # Launch the Gradio app
-    app.launch(share=False)  # set share=False for local deployment only
+    app.launch(share=False)  # set share=False for local deployment only and share= True for public web deployment
