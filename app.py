@@ -2,7 +2,7 @@ from HelmetDetector import *
 import gradio as gr
 
 # Initialize the detector
-path = "SH_yolo11n.pt"
+path = "Model/SH_yolo11n.pt"
 detector = HelmetDetector(path)
 
 #Functions to load image or video
