@@ -1,6 +1,5 @@
 import os
 from time import time
-import logging
 import cv2
 import torch
 import numpy as np
@@ -29,13 +28,6 @@ class HelmetDetector:
             'helmet': (0, 255, 255),   # Yellow
            
         }
-
-        #Setting up logging handlers
-        logging.basicConfig(filename="app.log",
-                    format='%(asctime)s %(levelname)s: %(message)s',
-                    level=logging.INFO,
-                    filemode='w')
-        self.logger = logging.getLogger()
         
 
 
@@ -60,7 +52,7 @@ class HelmetDetector:
         annotated_img = results[0].plot()
         annotated_img = cv2.cvtColor(annotated_img, cv2.COLOR_BGR2RGB)
         inference_time = results[0].speed["inference"]
-        #self.logger.info("Inference Time: %f ms", inference_time)
+        
         return annotated_img
     
     def process_video(self, video_path, skip_stride = 3):
@@ -107,7 +99,7 @@ class HelmetDetector:
 
                     annotated = result.plot()
                     inference_time = result.speed["inference"]
-                    self.logger.info(f"Inference Time: {inference_time:.1f} ms")
+                    
 
             out.write(annotated)
 
@@ -122,7 +114,7 @@ class HelmetDetector:
             total_pipeline_latency += latency
             pipeline_fps+= fps_smooth
             detected_frames+=1
-            #self.logger.info(f"Frames detected: {detected_frames}")
+           
 
         cap.release()
         out.release()
@@ -132,7 +124,5 @@ class HelmetDetector:
             avg_latency = total_pipeline_latency / detected_frames
             avg_fps = pipeline_fps/detected_frames
     
-        #self.logger.info(f"Average Latency: {avg_latency:.1f} ms")
-        #self.logger.info(f"Average FPS: {avg_fps} ")
         
         return output_path
